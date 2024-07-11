@@ -1,0 +1,18 @@
+第一章：介绍Javascript的起源
+第二章：如何与HTML结合应用
+第三章：介绍原始类型、语法和流控制语句等基本概念
+第四章：松散类型下的变量处理（原始类型、引用类型、垃圾回收）
+第五、六章：所有内置的引用类型
+第七章：迭代器、生成器
+
+第一章 是什么，从哪儿来到哪儿去
+  最开始是为了在客户端处理一些基础的验证，拨号上网（调制解调器上网、猫儿？），有了JavaScript估计能省不少钱
+  现在可以实现很多复杂功能了，大伙儿都用，连最事儿的微软，IE初始版本也包含自己的JavaScript实现
+  后来用自己的VBScript，现在的edge不知道还有没有，一会儿查查，怪不得写的时候，他老解析的跟别的不一样，老出bug
+  入门简单，深入难，那就用这个笔记，记载我的JavaScript从入门到放弃吧。
+  netscape取名叫JavaScript是为了蹭Java的热度
+netscape发布的Netscape Navigator2中Javascript1.0很成功，就又在Netscape Navigator3中Javascript1.1
+微软紧跟着就抄一下，发布自己的IE3，自己给起个名叫JScript，怕被告
+两个版本并存，必须得标准化了，此处国际组织Ecma登场，实际成员都是各个公司，对这个语言感兴趣的工程师组成的
+几个月之后，出现了爱克玛scrip脚本标准（ECMAscript，这发音好像个广州服装品牌啊），然后还获得ISO认证了
+JavaScript＝ECMAScrip＋DOM＋BOM
