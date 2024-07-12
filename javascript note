@@ -15,4 +15,43 @@ netscape发布的Netscape Navigator2中Javascript1.0很成功，就又在Netscap
 微软紧跟着就抄一下，发布自己的IE3，自己给起个名叫JScript，怕被告
 两个版本并存，必须得标准化了，此处国际组织Ecma登场，实际成员都是各个公司，对这个语言感兴趣的工程师组成的
 几个月之后，出现了爱克玛scrip脚本标准（ECMAscript，这发音好像个广州服装品牌啊），然后还获得ISO认证了
-JavaScript＝ECMAScrip＋DOM＋BOM
+JavaScript＝ECMAScript＋DOM＋BOM
+1.2.1 ECMAScript
+1.2.2 DOM
+      文档对象模型（Document Object Model，DOM）是一个应用程序接口（API），用于在HTML中使用扩展的XML。
+      DOM将整个页面抽象为一组分层节点，通过创建表示文档的树，使开发者可以通过使用DOM API控制网页的内容和结构。
+又是网景和微软各玩各的，浏览器分别支持不同形式的动态HTML（DHTML），为了避免最终会发展成面向浏览器开发网页的局面，
+W3C又出现了，制定DOM标准
+1.2.3BOM
+      浏览器对象模型（Browser Object Model,BOM）API,用于支持访问和操作浏览器的窗口，可以操作浏览器显示页面之外的部分。
+它是唯一一个没有相关标准的Javascript实现。HTML5开始以正式规范的形式涵盖了尽可能多的BOM特性。
+
+BOM主要针对浏览器窗口和子窗口（frame）
+
+第一章讲了很多八卦历史，和怎么一步步发展到现在的过程，了解一下就行了，其中很多语言的细节部分，了解不够深入，没有概念
+没有画面难以理解，之后反复阅读中，再加深理解
+
+
+第二章
+
+2.1<script>元素
+
+用<script>元素，将Javascript插入HTML中
+<script>元素有8个属性
+
+此处要将async、defer、DOMContentLoaded、load放在一起说，搞清楚他们之间的关系。
+（同时追加一个加载渲染解析的说明：https://blog.csdn.net/weixin_38080573/article/details/79440400）
+https://blog.csdn.net/jyn15159/article/details/136321522#:~:text=%E5%AF%B9%E4%B8%8D%E6%8E%A8%E8%BF%9F%E6%89%A7%E8%A1%8C%E7%9A%84%E8%84%9A%E6%9C%AC%EF%BC%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BF%85%E9%A1%BB%E8%A7%A3%E9%87%8A%E5%AE%8C%E4%BD%8D%E4%BA%8E%20%E5%85%83%E7%B4%A0%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E7%84%B6%E5%90%8E%E6%89%8D%E8%83%BD%E7%BB%A7%E7%BB%AD%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%89%A9%E4%BD%99%E9%83%A8%E5%88%86%E3%80%82%20%E4%B8%BA%E6%AD%A4%EF%BC%8C%E9%80%9A%E5%B8%B8%E5%BA%94%E8%AF%A5%E6%8A%8A%20%E5%85%83%E7%B4%A0%E6%94%BE%E5%88%B0%E9%A1%B5%E9%9D%A2%E6%9C%AB%E5%B0%BE%EF%BC%8C%E4%BB%8B%E4%BA%8E%E4%B8%BB%E5%86%85%E5%AE%B9%E4%B9%8B%E5%90%8E%E5%8F%8A%20%E6%A0%87%E7%AD%BE%E4%B9%8B%E5%89%8D%E3%80%82%20%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8,defer%20%E5%B1%9E%E6%80%A7%E6%8A%8A%E8%84%9A%E6%9C%AC%E6%8E%A8%E8%BF%9F%E5%88%B0%E6%96%87%E6%A1%A3%E6%B8%B2%E6%9F%93%E5%AE%8C%E6%AF%95%E5%90%8E%E5%86%8D%E6%89%A7%E8%A1%8C%E3%80%82%20%E6%8E%A8%E8%BF%9F%E7%9A%84%E8%84%9A%E6%9C%AC%E5%8E%9F%E5%88%99%E4%B8%8A%E6%8C%89%E7%85%A7%E5%AE%83%E4%BB%AC%E8%A2%AB%E5%88%97%E5%87%BA%E7%9A%84%E6%AC%A1%E5%BA%8F%E6%89%A7%E8%A1%8C%E3%80%82%20%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%20async%20%E5%B1%9E%E6%80%A7%E8%A1%A8%E7%A4%BA%E8%84%9A%E6%9C%AC%E4%B8%8D%E9%9C%80%E8%A6%81%E7%AD%89%E5%BE%85%E5%85%B6%E4%BB%96%E8%84%9A%E6%9C%AC%EF%BC%8C%E5%90%8C%E6%97%B6%E4%B9%9F%E4%B8%8D%E9%98%BB%E5%A1%9E%E6%96%87%E6%A1%A3%E6%B8%B2%E6%9F%93%EF%BC%8C%E5%8D%B3%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%E3%80%82%20%E5%BC%82%E6%AD%A5%E8%84%9A%E6%9C%AC%E4%B8%8D%E8%83%BD%E4%BF%9D%E8%AF%81%E6%8C%89%E7%85%A7%E5%AE%83%E4%BB%AC%E5%9C%A8%E9%A1%B5%E9%9D%A2%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E5%BA%8F%E6%89%A7%E8%A1%8C%E3%80%82
+https://developer.mozilla.org/ja/docs/Web/API/Window/load_event
+https://qiita.com/phanect/items/82c85ea4b8f9c373d684#Async
+https://developer.mozilla.org/zh-CN/docs/Web/API/Document/DOMContentLoaded_event
+async：可选。异步脚本、只对外部脚本文件有效。表示应该立即开始下载脚本，但不能阻止其他页面动作。
+        HTML解析，遇到元素，开始HTML解析与脚本下载，多线程并行，之后开始单线程脚本执行，HTML解析停止，脚本执行结束，HTML解析继续进行。
+defer：可选。延迟脚本、只对外部脚本文件有效。表示脚本可以延迟到文档完全被解析和显示之后再执行。
+        HTML解析，遇到元素，HTML解析不停止，脚本下载、脚本执行先后与之，多线程并行。
+DOMContentLoaded：HTML完全解析，所有延迟脚本下载和执行完毕后，会触发DOMContentLoaded事件。
+                  它不会等待图片、子框架和异步脚本等其他内容完成加载。
+                  它也不会等待样式表加载，但是延迟脚本会等待样式表，而它又排在延迟脚本之后。
+                  非延迟或异步的脚本将等待已解析的样式表加载。
+
+
