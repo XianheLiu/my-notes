@@ -55,3 +55,19 @@ DOMContentLoaded：HTML完全解析，所有延迟脚本下载和执行完毕后
                   非延迟或异步的脚本将等待已解析的样式表加载。
 
 
+・<script>有两种用法:
+  ①通过它直接在网页中嵌入Javascript代码
+    <script>
+      function sayHi(){
+        console.log("Hi!");
+      }
+    </script>
+  代码会被从上到下解释，在元素符号中的代码被计算完成之前，页面的其余内容不会被加载，也不会被显示
+  ②通过它在网页中包含外部Javascript文件
+  <script src="example.js"></script>
+  在页面中加载了一个外部文件。
+
+※一般外部文件的扩展名是.js，但是浏览器不检查，所以就有特殊情况。
+  比如使用服务器端脚本语言动态生成Javascript代码，或者在浏览器中将Javascript扩展语言（如TypeScript，或React的JSX）转译为JavaScript
+  但是这种情况下要注意确保服务器能返回正确的MIME类型，因为服务器经常会根据扩展名来确定响应的正确的MIME类型。
+
